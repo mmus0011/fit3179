@@ -1,47 +1,47 @@
 {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 800,
-  "height": 430,
-  "title": "Revenue by retail trade industry in Australia for last 20 years ( in millions )",
-  "projection": {"type": "equirectangular"},
-  "layer": [
-    {
-      "data": {
-        "url": "https://raw.githubusercontent.com/mmus0011/fit3179/main/map%20files/STE_2016_AUST.json",
-        "format": {"type": "topojson", "feature": "STE_2016_AUST"}
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 550,
+    "height": 300,
+    "title": "Revenue by retail trade industry in Australia for last 20 years ( in millions )",
+    "projection": {"type": "equirectangular"},
+    "layer": [
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/mmus0011/fit3179/main/map%20files/STE_2016_AUST.json",
+          "format": {"type": "topojson", "feature": "STE_2016_AUST"}
+        },
+        "mark": {
+          "type": "geoshape",
+          "fill": "lightsteelblue",
+          "stroke": "floralwhite"
+        }
       },
-      "mark": {
-        "type": "geoshape",
-        "fill": "lightgray",
-        "stroke": "floralwhite"
-      }
-    },
-    {
-      "data": {
-        "url": "https://raw.githubusercontent.com/mmus0011/fit3179/main/aggredated_data_for_20years.csv"
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/mmus0011/fit3179/main/aggredated_data_for_20years.csv"
+        },
+        "mark": {"type": "circle", "tooltip": {"content": "data"}},
+        "encoding": {
+          "longitude": {"field": "longitude", "type": "quantitative"},
+          "latitude": {"field": "latitude", "type": "quantitative"},
+          "size": {"field": "revenue", "type": "quantitative"},
+          "color": {
+            "field": "revenue",
+            "type": "quantitative",
+            "scale": {"scheme": "reds"}
+          }
+        }
       },
-      "mark": {"type": "circle", "tooltip": {"content": "data"}},
-      "encoding": {
-        "longitude": {"field": "longitude", "type": "quantitative"},
-        "latitude": {"field": "latitude", "type": "quantitative"},
-        "size": {"field": "revenue", "type": "quantitative"},
-        "color": {
-          "field": "revenue",
-          "type": "quantitative",
-          "scale": {"scheme": "reds"}
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/mmus0011/fit3179/main/final%20dataset.csv"
+        },
+        "mark": {"type": "text", "dy": 13, "dx": 13},
+        "encoding": {
+          "longitude": {"field": "longitude", "type": "quantitative"},
+          "latitude": {"field": "latitude", "type": "quantitative"},
+          "text": {"field": "state", "type": "nominal"}
         }
       }
-    },
-    {
-      "data": {
-        "url": "https://raw.githubusercontent.com/mmus0011/fit3179/main/final%20dataset.csv"
-      },
-      "mark": {"type": "text", "dy": 13, "dx": 13},
-      "encoding": {
-        "longitude": {"field": "longitude", "type": "quantitative"},
-        "latitude": {"field": "latitude", "type": "quantitative"},
-        "text": {"field": "state", "type": "nominal"}
-      }
-    }
-  ]
-}
+    ]
+  }
