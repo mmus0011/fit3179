@@ -1,0 +1,37 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 600,
+    "height": 300,
+    "title": "Revenue by retail trade in Australia for last 10 years ( in millions )",
+    "data": {"url": "https://raw.githubusercontent.com/mmus0011/fit3179/main/final%20dataset.csv"
+    },
+   
+    "selection": {
+    "state_highlight": {
+    "type": "multi",
+    "fields": ["state"],
+    "bind": "legend"
+    }
+    },
+   
+    "mark": { "type": "line", "tooltip": true},
+    "encoding": {
+    "x": {
+    "field": "year",
+    "type": "temporal",
+    "title": "year"
+    },
+    "y": {
+    "field": "revenue",
+    "type": "quantitative"
+    },
+    "color": {
+    "field": "state",
+    "type": "nominal"
+    },
+   "opacity": {
+    "condition": {"selection": "state_highlight", "value": 1},
+    "value": 0.2}
+    }
+   }
+   
