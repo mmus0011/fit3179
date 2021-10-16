@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 550,
   "height": 300,
-  "title": "Revenue by retail trade in Australia for last 10 years ( in millions )",
+  "title": "Revenue by Retail Trade industry in Australia for last 10 years ( in millions )",
   "projection": {"type": "equirectangular"},
   "layer": [
     {
@@ -12,13 +12,13 @@
       },
       "mark": {
         "type": "geoshape",
-        "fill": "lightskyblue",
+        "fill": "lightblue",
         "stroke": "floralwhite"
       }
     },
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/mmus0011/fit3179/main/aggredated_data_for_20years.csv"
+        "url": "https://raw.githubusercontent.com/mmus0011/fit3179/main/aggredated_data_for_10years.csv"
       },
       "mark": {"type": "circle", "tooltip": {"content": "data"}},
       "encoding": {

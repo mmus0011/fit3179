@@ -1,0 +1,37 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A simple pie chart with labels.",
+  "height": 400,
+  "width": 610,
+  "title": "Retail Trade and Mining industry Share in total Revenue of Australia for year 2020",
+  "data": {
+    "url": "https://raw.githubusercontent.com/mmus0011/fit3179/main/piechart.csv"
+  },
+  "encoding": {
+    "theta": {"field": "Revenue(in billions)", "type": "quantitative", "stack": true},
+    "color": {
+      "field": "Industry", 
+      "type": "nominal",
+      "scale": {
+ "domain": [
+ "Retail",
+ "Mining",
+ "Others"
+ ],
+ "range": [
+ "#A80E00",
+ "#0000F5",
+ "#FFC30F"
+ ]
+ }
+      }
+  },
+  "layer": [{
+    "mark": {"type": "arc", "outerRadius": 100 , "tooltip": true}
+  }, {
+    "mark": {"type": "text", "radius": 120 , "fontSize": 15},
+    "encoding": {
+      "text": {"field": "proportions", "type": "nominal"}
+    }
+  }]
+}
