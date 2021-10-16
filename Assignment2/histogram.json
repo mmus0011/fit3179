@@ -1,0 +1,71 @@
+{
+
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+ 
+  "width": {"step": 30 },
+  "height": 360,
+  "title": {
+     "text": "Industry Comparison by states for last 8 years",
+     "anchor": "middle",
+     "fontSize": 13
+   },
+ 
+  "data": { "url": "https://raw.githubusercontent.com/mmus0011/fit3179/main/Hist.csv"},
+ 
+  "mark": {"type": "bar", "tooltip": {"content": "data"}},
+ 
+  "encoding": {
+ 
+  "column": {
+ 
+  "field": "state", "type": "nominal", "spacing": 10,
+ 
+  "header": {"orient": "bottom"}
+ 
+ 
+  },
+ 
+  "y": {
+ 
+  "aggregate": "sum", "field": "revenue",
+ 
+  "title": "Revenue (in millions)",
+ 
+  "axis": {"grid": false}
+ 
+  },
+ 
+  "x": {
+ 
+  "field": "industry",
+ 
+  "axis": null
+ 
+  },
+ 
+  "color": {
+ 
+  "field": "industry",
+  "scale": {
+ "domain": [
+ "retail",
+ "mining"
+ ],
+ "range": [
+ "#A80E00",
+ "#0000F5"
+ ]
+ }
+  }
+ 
+  },
+ 
+  "config": {
+ 
+  "view": {"stroke": "transparent"},
+ 
+  "axis": {"domainWidth": 1}
+ 
+  }
+ 
+ }
